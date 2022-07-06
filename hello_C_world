@@ -1,46 +1,33 @@
 Introduction to C programming
-
-C is a general purpose programming language that was developed by Dennis Ritchie in 1972. It is a successor to the B programming language. By design, it is compiled to provide low-level access to memory. 
-
-Some important features of C
-
-C is a procedural language
-
-This means that programming in C follows a series of well-structured steps(procedures) within it's context. 
-
-All C code has to be inside a function
-
-C files have to be compiled with a compiler to create an exectable file ( I use the gcc compiler, all the demonstrated examples will be done in gcc)
+C is a general-purpose programming language that was developed by Dennis Ritchie in 1972. It is a successor to the B programming language. By design, it is compiled to provide low-level access to memory. 
+Some essential features of C 
+C is a procedural language - Which means that programming in C follows a series of well-structured steps(procedures) within its context.
+All C code has to be inside a function.
+C files have to be compiled with a compiler to create an executable file ( I use the gcc compiler, all the demonstrated examples will be done in gcc) 
 
 Prerequisites and other conventions
-
-If you wish to follow along with the coding examples, I suggest that you install a compiler. Please refer to online resources on how to do that for your system. 
-
+If you wish to follow along with the coding examples, I suggest that you install a compiler. Please refer to online resources on how to do that for your system.
 Usage of the term 'run' has been followed by a command executed from the terminal. By running:
 gcc
-means typing gcc in your terminal 
- 
-Our first C program
-
-Fire up your favourite text editor, then create a file hello_world.c (.c extension denotes C files). Your hello_world.c file should have the following contents:
-
-#include <stdio.h>
-
+means typing gcc in your terminal.
+Our first C program 
+Fire up your favorite text editor, then create a file hello_world.c (.c extension denotes C files). Your hello_world.c file should have the following content:
+#include <stdio.h> 
 int main(void)
-{
-        printf("Hello World!\n");
-        return (0);
+{        
+     printf("Hello World!\n");
+     return (0);
 }
-
 Let's now break down the purpose of each line:
-#include: tells the preprocessor to insert the contents of the stdio.h file. stdio.h is a header file (denoted using .h), a header file contains macros (neccessary information for the Input/Output functions i.e the printf() function used in this case, it's important to note that sdtio stands for Standard Input Output)
-int main(void): this is the entry point of our main function, the (void) bit indicates the the function can only be called without any argument. 
-The curly brackets 'house' our function 
-printf: function that writes a string ("Hello World!" in this case, it has to be enclosed in double quotes) to the standard output(sdtout). The \n is a new line character, it shifts the control of the cursor to the new line.
-Return (0): this is the 'exit status' for our function, the program ends with the return (0) statement.     
+#include: tells the preprocessor to insert the contents of the stdio.h file. stdio.h is a header file (denoted using .h), a header file contains macros (necessary information for the Input/Output functions i.e the printf() function used in this case, it's important to note that stdio stands for Standard Input Output)
+int main(void): this is the entry point of our main function, the (void) bit indicates that the function can only be called without any argument.
+The curly brackets 'house' our function.
+printf: a function that writes a string ("Hello World!" in this case, it has to be enclosed in double quotes) to the standard output(sdtout). The \n is a new line character, it shifts the control of the cursor to the new line.
+Return (0): this is the 'exit status' for our function, the program ends with the return (0) statement.
+
 To execute this code, ensure that the file is saved. Then compile the file by running:
 gcc hello_world.c
-By default, this creates a new file a.out which  can be run by:
+By default, this creates a new file a.out which can be run by:
 ./a.out
 this outputs:
 Hello World!
@@ -48,5 +35,4 @@ To specify the name of the executable (compiled file), run:
 gcc filename -o target_name
 Assuming we want the executable of our hello_world.c to be named new, we replace the filename with hello_world.c and target_name with new, our new command will now be:
 gcc hello_world.c -o new 
-
-We now have our first program in C. This is pretty simple but we will be exploring more advanced operations, all built on this foundation.  
+We now have our first program in C. This is pretty simple but we will be exploring more advanced operations, all built on this foundation.
