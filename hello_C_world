@@ -1,0 +1,23 @@
+Introduction to C programming
+
+C is a general purpose programming language that was developed by Dennis Ritchie in 1972. It is a successor to the B programming language. By design, it is compiled to provide low-level access to memory. 
+
+Some important features of C
+
+C is a procedural language
+
+This means that programming in C follows a series of well-structured steps(procedures) within it's context. 
+
+All C code has to be inside a function
+
+C files have to be compiled with a compiler to create an exectable file ( I use the gcc compiler, all the demonstrated examples will be done in gcc)
+
+Prerequisites
+
+If you wish to follow along with the coding examples, I suggest that you install a compiler. Please refer to online resources on how to do that for your system. 
+
+Our first C program
+
+The C code required to output 'Hello, World';
+
+###hello_world.c###
