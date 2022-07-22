@@ -11,3 +11,17 @@ int main(void)
 	printf("The value of a = %d, b = %d and a + b = %d\n", a, b, c);
 	return (0);
 }
+
+/**
+ * non_local - references a non-local variable
+ * Return: 0
+ */
+int non_local(void)
+{
+	int d, e;
+
+	e = c + d;
+	printf("The value of e is %d\n", e);
+	return (0);
+}
+
