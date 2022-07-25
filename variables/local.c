@@ -1,27 +1,22 @@
 #include <stdio.h>
-/**
- * main - declares local variables a, b and c
- * Return: 0
- */
+/* global variable declarations */
+int a = 10, b = 20, c, e;
+/* function declaration */
+int non_local(int c);
+/* main - displays the value of e = c + d */
 int main(void)
 {
-	int a = 10, b = 20, c;
-
 	c = a + b;
-	printf("The value of a = %d, b = %d and a + b = %d\n", a, b, c);
+	
+	printf("The value of e is %d\n", non_local(c)); 
 	return (0);
-}
-
-/**
- * non_local - references a non-local variable
- * Return: 0
- */
-int non_local(void)
+} 
+/* non_local - computes and returns e = c + d */ 
+int non_local(int c)
 {
-	int d, e;
+	int d = 30;
 
-	e = c + d;
-	printf("The value of e is %d\n", e);
-	return (0);
+	e = c + d;		
+	return (e);
 }
 
