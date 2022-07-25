@@ -1,11 +1,13 @@
 #include <stdio.h>
 /* global variable declarations */
-int a = 10, b = 20, c, e;
+int e;
 /* function declaration */
 int non_local(int c);
 /* main - displays the value of e = c + d */
 int main(void)
 {
+	int a = 10, b = 20, c;
+	
 	c = a + b;
 	
 	printf("The value of e is %d\n", non_local(c)); 
@@ -19,4 +21,3 @@ int non_local(int c)
 	e = c + d;		
 	return (e);
 }
-
