@@ -1,0 +1,147 @@
+Variables in C programming
+
+Variables are the names given to a computer memory location used to store values. These values can be changed and reused many times during the execution of a program.
+
+In C programming, all variables must be declared before usage. Declaration involves stating the variable data type and the variable list. 
+
+A quick glance at data types
+
+The basic data types in C are;
+char character, typically a single byte
+int integer, reflects the natural size of an integer on the host machine
+float single-precision floating point
+double double-precision floating point
+
+The variable list may contain a single name for one variable, for instance
+int n;
+creates a variable n of type int, the semicolon character is a statement terminator in C, it marks the end of a statement.
+Alternatively;
+int n b;
+creates two variables named n and b of type int.
+
+Declaring variables via parameter list
+
+Variables which have been listed as function parameters do not require to be declared again in the body of the function to be used. Let's create a script already_declared.c;
+
+#include <stdio.h>
+
+int main(int c, int a)
+{
+        a = 20; c = 10;
+
+        int sum = c + a;
+
+        printf("sum = %d\n", sum);
+        return (0);
+}
+
+In our script;
+variables c and a of type int have been listed as parameters to the function main, this qualifies them as local variables.  
+
+Variable types
+
+Variable usage in C is determined by the scope, this is the part of a program within which a variable can be used. 
+
+Local variables
+
+These are variables declared inside a given function, and can't be directly accessed by other functions. Local variables are also refered to as automatic variables because they only come into existance when a function in which they are declared is called and disappear when the function is exited.
+Here is a simple program which returns the sum of two values. All the values are stored in local variables a, b and c in our main function;
+#include <stdio.h>
+/**
+ * main - declares local variables a, b and c
+ * Return: 0
+ */
+int main(void)
+{
+        int a = 10, b = 20, c;
+
+        c = a + b;
+        printf("The value of a = %d, b = %d and a + b = %d\n", a, b, c);
+        return (0);
+}
+
+running the following code outputs;
+The value of a = 10, b = 20 and a + b = 30
+
+Let's now add another function to our script:
+#include <stdio.h>
+
+int non_local(int c);
+int main(void)
+{
+	int a = 10, b = 20, c;
+	int d = 30, e;
+        c = a + b;
+
+        printf("The value of e is %d\n", non_local(c));
+        return (0);
+}
+
+int non_local(int c)
+{
+        int d = 30;
+
+        e = c + d;
+        return (e);
+}
+
+A quick glance at our newly edited file;
+in our main function - 
+we have added variable declarations for integers d and given it a value of 30 and another integer e.
+we have changed our printf statement, it is now required to display the value of e. 
+Note: %d is a placeholder for the value of the computation of the function non_local(c), which yields e. c is a required variable. 
+Note: int non_local(int c) declares int c a local variable of the function non_local.
+e is used in non_local but defined in main, a good recipe for an out of scope error.
+in our non_local funtion -
+given the value of int c, notice the declaration
+ int non_local(int c)
+this tells us that non_local requires a parameter int c to execute as expected.
+we have declared an integer d and given it a value of 30 
+we are adding c to d and storing the result as e
+we are returning the value of e. 
+
+notice the declaration of our non_local function just before the main function
+
+Attempting to compile our edited script returns the following error
+
+local.c: In function ‘non_local’:
+local.c:18:9: error: ‘e’ undeclared (first use in this function)
+   18 |         e = c + d;
+      |		^
+
+True to our word, our compiler raises an error:'e' undeclared. This tells us that the variable e is out of scope when used in non_local. And the compiler is kind enough to highlight the line in which the error occured. 
+
+Lets now fix our error by looking at global variables
+
+Global variables
+
+Unlike local variables, global variables are defined outside the body of the function and can be accessed by all the defined functions. The lifespan of global variables is mantained throughout the lifespan of the program(s) in which they are defined.
+
+Going back to our local.c file. To fix the error, we need to declare e outside the body of the function. Our fixed local.c will look like this:
+
+#include <stdio.h>
+int e;
+int non_local(int c);
+int main(void)
+{
+        int a = 10, b = 20, c;
+        int d = 30;
+        c = a + b;
+
+        printf("The value of e is %d\n", non_local(c));
+        return (0);
+}
+
+int non_local(int c)
+{
+        int d = 30;
+
+        e = c + d;
+        return (e);
+}
+
+We have now declared e globally. Running our script now displays:
+The value of e is 60
+Now it executes with no errors. Fix succesful!
+
+
