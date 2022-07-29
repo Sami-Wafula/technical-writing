@@ -194,4 +194,6 @@ Running the code outputs;
 Number of function executions: 1
 Number of function executions: 2
 
-Now our code behaves as expected. Note the change we made by defining our int time variable as static int time.  
+Now our code behaves as expected. Note the change we made by defining our int time variable as static int time. 
+
+In programming, variables are an integral building block. We covered the scenarios for use and demostration of various variable types in C. I have avoided mentioning qualifiers because I will write a complete article on them, for the sake of clear illustration.  
