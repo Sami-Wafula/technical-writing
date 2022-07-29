@@ -144,4 +144,54 @@ We have now declared e globally. Running our script now displays:
 The value of e is 60
 Now it executes with no errors. Fix succesful!
 
+Static variables in C
 
+Static variables have a lifespan throughout the whole program execution time. Th static declaration limits the scope of an external variable to the rest of the source file being compiled. When applied to local variables, the scope of the local variable remains unchanged. However, the local static variables persist in existance even after function deactivation. 
+Let's explore the following scenario;
+We are interested in monitoring the number of times that a process executes, so we create a function script time.c with the following code;
+
+#include <stdio.h>
+
+int times(void);
+int main(void)
+{
+        printf("Number of function executions: %d\n", times());
+        printf("Number of function executions: %d\n", times());
+        return (0);
+}
+int times(void)
+{
+        int time = 0;
+        time++;
+        return (time);
+}
+
+Our function main prints the number of excecutions of the function times. In function times, the value of time is set initially at 0, we are using the time++ method to increase this value by 1 during each iteration.
+
+Running the code outputs;
+Number of function executions: 1
+Number of function executions: 1
+
+ The first iteration therefore returns 1, and the second iteration should return 2. However, in our case we get 1 for each iteration. This is because the value of time is initialized to 0 after each iteration, hence the value of time after each iteration will always be 1. To make the computer to remember the updated value of time, we make the int time variable to be a static variable. Let's implement that by editing our time.c file as follows;
+
+#include <stdio.h>
+
+int times(void);
+int main(void)
+{
+        printf("Number of function executions: %d\n", times());
+        printf("Number of function executions: %d\n", times());
+        return (0);
+}
+int times(void)
+{
+        static int time = 0;
+        time++;
+        return (time);
+}
+
+Running the code outputs;
+Number of function executions: 1
+Number of function executions: 2
+
+Now our code behaves as expected. Note the change we made by defining our int time variable as static int time.  
