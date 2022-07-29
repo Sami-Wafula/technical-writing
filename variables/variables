@@ -7,10 +7,10 @@ In C programming, all variables must be declared before usage. Declaration invol
 A quick glance at data types
 
 The basic data types in C are;
-char character, typically a single byte
-int integer, reflects the natural size of an integer on the host machine
-float single-precision floating point
-double double-precision floating point
+char - character, typically a single byte
+int - integer, reflects the natural size of an integer on the host machine
+float - single-precision floating point
+double - double-precision floating point
 
 The variable list may contain a single name for one variable, for instance
 int n;
@@ -45,7 +45,7 @@ Variable usage in C is determined by the scope, this is the part of a program wi
 Local variables
 
 These are variables declared inside a given function, and can't be directly accessed by other functions. Local variables are also refered to as automatic variables because they only come into existance when a function in which they are declared is called and disappear when the function is exited.
-Here is a simple program which returns the sum of two values. All the values are stored in local variables a, b and c in our main function;
+Here is a simple program that returns the sum of two values. All the values are stored in local variables a, b and c in our main function;
 #include <stdio.h>
 /**
  * main - declares local variables a, b and c
@@ -109,13 +109,13 @@ local.c:18:9: error: ‘e’ undeclared (first use in this function)
    18 |         e = c + d;
       |		^
 
-True to our word, our compiler raises an error:'e' undeclared. This tells us that the variable e is out of scope when used in non_local. And the compiler is kind enough to highlight the line in which the error occured. 
+True to our word, our compiler raises an error:'e' undeclared. This tells us that the variable e is out of scope when used in non_local. And the compiler is kind enough to highlight the line in which the error occurred. 
 
-Lets now fix our error by looking at global variables
+Let's now fix our error by looking at global variables
 
 Global variables
 
-Unlike local variables, global variables are defined outside the body of the function and can be accessed by all the defined functions. The lifespan of global variables is mantained throughout the lifespan of the program(s) in which they are defined.
+Unlike local variables, global variables are defined outside the body of the function and can be accessed by all the defined functions. The lifespan of global variables is maintained throughout the lifespan of the program(s) in which they are defined.
 
 Going back to our local.c file. To fix the error, we need to declare e outside the body of the function. Our fixed local.c will look like this:
 
@@ -142,11 +142,11 @@ int non_local(int c)
 
 We have now declared e globally. Running our script now displays:
 The value of e is 60
-Now it executes with no errors. Fix succesful!
+Now it executes with no errors. Fix successful!
 
 Static variables in C
 
-Static variables have a lifespan throughout the whole program execution time. Th static declaration limits the scope of an external variable to the rest of the source file being compiled. When applied to local variables, the scope of the local variable remains unchanged. However, the local static variables persist in existance even after function deactivation. 
+Static variables have a lifespan throughout the whole program execution time. The static declaration limits the scope of an external variable to the rest of the source file being compiled. When applied to local variables, the scope of the local variable remains unchanged. However, the local static variables persist in existence even after function deactivation. 
 Let's explore the following scenario;
 We are interested in monitoring the number of times that a process executes, so we create a function script time.c with the following code;
 
@@ -166,13 +166,13 @@ int times(void)
         return (time);
 }
 
-Our function main prints the number of excecutions of the function times. In function times, the value of time is set initially at 0, we are using the time++ method to increase this value by 1 during each iteration.
+Our function main prints the number of executions of the function times. In function times, the value of time is set initially at 0, we are using the time++ method to increase this value by 1 during each iteration.
 
 Running the code outputs;
 Number of function executions: 1
 Number of function executions: 1
 
- The first iteration therefore returns 1, and the second iteration should return 2. However, in our case we get 1 for each iteration. This is because the value of time is initialized to 0 after each iteration, hence the value of time after each iteration will always be 1. To make the computer to remember the updated value of time, we make the int time variable to be a static variable. Let's implement that by editing our time.c file as follows;
+ The first iteration returns 1, and the second iteration should return 2. However, in our case we get 1 for each iteration. This is because the value of time is initialized to 0 after each iteration, hence the value of time after each iteration will always be 1. To make the computer 'remember' the updated value of time, we make the int time variable to be a static variable. Let's implement that by editing our time.c file as follows;
 
 #include <stdio.h>
 
@@ -186,6 +186,7 @@ int main(void)
 int times(void)
 {
         static int time = 0;
+
         time++;
         return (time);
 }
@@ -196,4 +197,4 @@ Number of function executions: 2
 
 Now our code behaves as expected. Note the change we made by defining our int time variable as static int time. 
 
-In programming, variables are an integral building block. We covered the scenarios for use and demostration of various variable types in C. I have avoided mentioning qualifiers because I will write a complete article on them, for the sake of clear illustration.  
+In programming, variables are an integral building block. We have covered various scenarios for variables usage in C through illustrations. I have avoided mentioning qualifiers and the extern keyword because of the depth. I will write a complete article on them for a clear illustration. I hope that you'll find this article helpful. Please do comment in case of any suggestions.
