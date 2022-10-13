@@ -7,5 +7,4 @@ console.log(sum(1, 2)) //returns 3
 
 let add = sum
 
-console.log(add(1, 2)) //return 3
-
+console.log(add(1, 2)) //returns 3
