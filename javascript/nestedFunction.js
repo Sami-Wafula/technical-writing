@@ -13,3 +13,16 @@ function mul(a, b){
 }
 
 console.log(mul(2.0, 2.9)) //test - returns 5.8
+
+function mul(a, b){
+
+    function floatInt (a){
+        let int = parseInt(a);
+        return int;
+    }
+
+    let res = a * b;
+    return floatInt(res);
+}
+
+console.log(mul(2.0, 2.9))
