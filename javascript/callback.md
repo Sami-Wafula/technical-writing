@@ -1,6 +1,6 @@
 Introduction
 
-In JavaScript, functions are objects. Its therefore completely possible to assign functions to variables, create functions within other functions, return functions from other functions and we can also pass them as arguments to other functions (critically important in the callback concept)
+In JavaScript, functions are objects. Its therefore completely possible to assign functions to variables, create functions within other functions and we can also pass them as arguments to other functions (critically important in the callback concept)
 
 - Functions as objects
 
@@ -92,6 +92,38 @@ outputs
 
 5
 
-- return functions from other functions 
-
 - passing them as arguments to other functions
+
+Javascript functions passed as arguments to other functions are called callback functions. A good example is the eventListener function which has a function parameter that executes after an event is captured. To explore how an eventListener works, view the code below;
+
+addEventListener("click", function(){
+document.write("I got clicked!")
+});
+
+Here, the function addEventListener has two parameters
+the "click" parameter detects a mouse click event
+the anonymous function which returns the text "I got clicked!"
+
+The program execution starts with a click event which then triggers the output
+To run the code, we need a html boilerplate and use the <script></script> tags for our JavaScript function;
+
+<!DOCTYPE html>
+<html>
+<body>
+<h2>JS Event Listener</h2>
+<h3>This is a demonstration for callback functions in JavaScript</h3>
+<h4>Execution sequence</h4>
+<li>user clicks the button</li>
+<li>click event is captured by the event Listener</li>
+<li>callback function runs</li>
+<li>output is displayed</li>
+<button id="btn">Click A!</button>
+<script>
+    addEventListener("click", function(){
+    document.write("I got clicked!")
+    });
+</script>
+</body>
+</html>
+
+Executing the code in a browser prints the message "I got clicked!" in the browser window.
