@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<body>
+<h2><b>JS</b> Event Listener</h2>
+<h3>This is a demonstration for callback functions in JavaScript</h3>
+<h4>Execution sequence</h4>
+<li>user clicks the button</li>
+<li>click event is captured by the event Listener</li>
+<li>callback function runs</li>
+<li>output is displayed</li>
+<button id="btn">Click A!</button>
+<button id="btn-a">Click B!</button>
+<script>
+    document.getElementById("btn").addEventListener("click", function(){
+    document.write("I got clicked!")
+    });
+
+    document.getElementById("btn-a").addEventListener("click", function(){
+    document.write("You clicked B")
+    });
+
+</script>
+</body>
+</html>
