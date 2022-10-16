@@ -10,7 +10,9 @@
 //asynch code 
 
 const fakeApi = () => {
-    console.log('Sync code');
+    setTimeout(() => {
+        console.log('Sync code');
+    }, 1000);
 }
 
 console.log('Hello');
